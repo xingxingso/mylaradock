@@ -3,6 +3,7 @@ FROM nginx:alpine
 LABEL maintainer="Kant Chan <1126973789@qq.com>"
 
 ADD nginx.conf /etc/nginx/
+ADD upstream.conf /etc/nginx/conf.d/
 
 # If you're in China, or you need to change sources, will be set CHANGE_SOURCE to true in .env.
 
@@ -17,5 +18,7 @@ RUN apk update \
     && apk add --no-cache openssl \
     && apk add --no-cache bash \
     && adduser -D -H -u 1000 -s /bin/bash www-data
+
+RUN rm /etc/nginx/conf.d/default.conf
 
 EXPOSE 80 443
