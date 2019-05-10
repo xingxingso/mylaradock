@@ -18,6 +18,25 @@ volumes:
 
 services:
 
+### Workspace Utilities ##################################
+    workspace:
+      build:
+        context: ./images/workspace
+        args:
+          - LARADOCK_PHP_VERSION=${PHP_VERSION_1}
+          - PUID=${WORKSPACE_PUID}
+          - PGID=${WORKSPACE_PGID}
+      volumes:
+        - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
+      extra_hosts:
+        - "dockerhost:${DOCKER_HOST_IP}"
+      ports:
+        - "${WORKSPACE_SSH_PORT}:22"
+      tty: true
+      networks:
+        - frontend
+        - backend
+
 ### NGINX Server #########################################
     nginx:
       build:
