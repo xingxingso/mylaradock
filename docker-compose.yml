@@ -42,7 +42,6 @@ services:
         context: ./images/php-fpm
         args:
           - LARADOCK_PHP_VERSION=${PHP_VERSION_1}
-          - ZZ_DOCKER_CONF_PATH=${ZZ_DOCKER_CONF_PATH_1}
       volumes:
         - ./config/php-fpm/php${PHP_VERSION_1}.ini:/usr/local/etc/php/php.ini
         - ${ZZ_DOCKER_CONF_PATH_1}:/usr/local/etc/php-fpm.d/zz-docker.conf

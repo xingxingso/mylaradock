@@ -71,10 +71,6 @@ RUN apt-get clean && \
 
 RUN usermod -u 1000 www-data
 
-# copy zz-docker.conf
-# ARG ZZ_DOCKER_CONF_PATH
-# ADD ${ZZ_DOCKER_CONF_PATH} /usr/local/etc/php-fpm.d/
-
 WORKDIR /var/www
 
 CMD ["php-fpm"]
