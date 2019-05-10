@@ -112,3 +112,13 @@ services:
         - "${MYSQL_PORT_2}:3306"
       networks:
         - backend
+
+### Redis ################################################
+    redis:
+      build: ./images/redis
+      volumes:
+        - ${DATA_PATH_HOST}/redis:/data
+      ports:
+        - "${REDIS_PORT}:6379"
+      networks:
+        - backend
