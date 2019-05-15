@@ -107,6 +107,7 @@ services:
         - ${DATA_PATH_HOST}/mysql${MYSQL_VERSION_1}:/var/lib/mysql
         - ${MYSQL_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
         - ${MYSQL_MY_CNF_PATH_1}:/etc/mysql/conf.d/my.cnf
+        - ${MYSQL_LOG_PATH}:/var/log/mysql
       ports:
         - "${MYSQL_PORT_1}:3306"
       networks:
@@ -127,6 +128,7 @@ services:
         - ${DATA_PATH_HOST}/mysql${MYSQL_VERSION_2}:/var/lib/mysql
         - ${MYSQL_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
         - ${MYSQL_MY_CNF_PATH_2}:/etc/mysql/conf.d/my.cnf
+        - ${MYSQL_LOG_PATH}:/var/log/mysql
       ports:
         - "${MYSQL_PORT_2}:3306"
       networks:
