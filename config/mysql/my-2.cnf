@@ -16,7 +16,8 @@ general_log      = 1
 
 slow_query_log      = 1
 slow_query_log_file = /var/log/mysql/mysql-slow.log
-long_query_time     = 2
+long_query_time     = 0.1
+# 未使用索引
 log-queries-not-using-indexes = 1
 
 [mysqld_safe]
