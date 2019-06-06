@@ -15,8 +15,11 @@ RUN if [ ${CHANGE_SOURCE} = true ]; then \
 RUN apk update \
     && apk upgrade \
     && apk add --no-cache openssl \
+    # && apk add --no-cache bash
     && apk add --no-cache bash \
-    && adduser -D -H -u 1000 -s /bin/bash www-data
+    && adduser -D -H -u 1000 -s /bin/bash www-data1
+    # && adduser -D -H 1000 -s /bin/bash www-data
+    # && adduser -D -S -h /bin/bash www-data
 
 RUN rm /etc/nginx/conf.d/default.conf
 
